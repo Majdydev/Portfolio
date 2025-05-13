@@ -213,71 +213,113 @@ export default function Home() {
     <div ref={containerRef} className="bg-primary text-textPrimary">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/80 backdrop-blur-md">
-        <div className="flex justify-between items-center py-4 px-8 md:px-16">
+        <div className="flex justify-between items-center py-4 px-4 sm:px-8 md:px-16">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-accent font-mono text-xl font-bold"
+            className="text-accent font-mono text-lg sm:text-xl font-bold"
           >
             &lt;Majd/&gt;
           </motion.div>
+          
+          {/* Mobile Navigation Hamburger */}
+          <div className="md:hidden">
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="text-accent p-2"
+              onClick={() => {
+                const menu = document.getElementById("mobile-menu");
+                if (menu) {
+                  menu.classList.toggle("hidden");
+                }
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </motion.button>
+            
+            <motion.div 
+              id="mobile-menu"
+              initial={{ opacity: 0, y: -20 }}
+              className="hidden absolute left-0 right-0 top-full bg-primary/95 backdrop-blur-md p-4 border-t border-accent/20"
+            >
+              <ul className="flex flex-col space-y-4">
+                <li><a href="#about" className="nav-link block py-2">About</a></li>
+                <li><a href="#skills" className="nav-link block py-2">Skills</a></li>
+                <li><a href="#projects" className="nav-link block py-2">Projects</a></li>
+                <li><a href="#contact" className="nav-link block py-2">Contact</a></li>
+              </ul>
+            </motion.div>
+          </div>
+          
+          {/* Desktop Navigation */}
           <motion.ul
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex space-x-8 items-center"
+            className="hidden md:flex space-x-4 lg:space-x-8 items-center"
           >
-            <li>
-              <a href="#about" className="nav-link">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#skills" className="nav-link">
-                Skills
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className="nav-link">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="nav-link">
-                Contact
-              </a>
-            </li>
+            <li><a href="#about" className="nav-link">About</a></li>
+            <li><a href="#skills" className="nav-link">Skills</a></li>
+            <li><a href="#projects" className="nav-link">Projects</a></li>
+            <li><a href="#contact" className="nav-link">Contact</a></li>
           </motion.ul>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-center pt-20 section-padding">
+      <section className="min-h-screen flex flex-col justify-center pt-20 px-4 sm:px-8 md:px-12 lg:px-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-lg font-mono text-accent mb-4">
+            <motion.h1 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg font-mono text-accent mb-4"
+            >
               {portfolioContent.hero.greeting}
-            </h1>
-            <h2 className="text-5xl md:text-7xl font-bold mb-4">
+            </motion.h1>
+            <motion.h2 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4"
+            >
               {portfolioContent.hero.name}.
-            </h2>
-            <h3 className="text-4xl md:text-6xl font-bold text-textSecondary mb-8">
+            </motion.h2>
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-3xl sm:text-4xl md:text-6xl font-bold text-textSecondary mb-8"
+            >
               {portfolioContent.hero.tagline}
-            </h3>
-            <p className="text-textSecondary max-w-xl text-lg mb-12">
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="text-textSecondary max-w-xl text-base sm:text-lg mb-12"
+            >
               {portfolioContent.hero.description}
-            </p>
-            <a
+            </motion.p>
+            <motion.a
               href="#projects"
-              className="border border-accent text-accent hover:bg-accent/10 py-4 px-8 rounded font-mono font-medium transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(100, 255, 218, 0.1)" }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block border border-accent text-accent py-3 sm:py-4 px-6 sm:px-8 rounded font-mono font-medium transition-all duration-300"
             >
               {portfolioContent.hero.ctaText}
-            </a>
+            </motion.a>
           </motion.div>
 
           <motion.div
@@ -286,12 +328,15 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden md:block"
           >
-            <div className="relative w-80 h-80 mx-auto">
-              {/* Profile image */}
-              <div className="w-full h-full rounded-lg overflow-hidden border-2 border-accent/30 relative">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto">
+              {/* Profile image with responsive size */}
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="w-full h-full rounded-lg overflow-hidden border-2 border-accent/30 relative"
+              >
                 {/* You can replace this with an actual image when you have one */}
                 <div className="w-full h-full bg-secondary flex items-center justify-center">
-                  <FaCode className="text-8xl text-accent/30" />
+                  <FaCode className="text-6xl sm:text-7xl md:text-8xl text-accent/30" />
                 </div>
                 {/* Uncomment and add your image path when ready */}
                 {/* <Image 
@@ -300,7 +345,7 @@ export default function Home() {
                   fill
                   className="object-cover"
                 /> */}
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -400,29 +445,72 @@ export default function Home() {
                   <span className="text-pink-400">return</span>{" "}
                   <span className="text-white">(</span>
                   <div className="pl-4">
-                    <span className="text-blue-500">&lt;div</span>{" "}
+                    <span className="text-blue-500">&lt;motion.div</span>{" "}
+                    <span className="text-yellow-300">initial</span>
+                    <span className="text-white">
+                      ="&#123;&#123; opacity: 0 &#125;&#125;"
+                    </span>{" "}
+                    <span className="text-yellow-300">animate</span>
+                    <span className="text-white">
+                      ="&#123;&#123; opacity: 1 &#125;&#125;"
+                    </span>{" "}
                     <span className="text-yellow-300">className</span>
-                    <span className="text-white">="about-section"</span>
+                    <span className="text-white">
+                      ="about-section responsive-container"
+                    </span>
                     <span className="text-blue-500">&gt;</span>
                     <div className="pl-4">
-                      <span className="text-blue-500">&lt;h2&gt;</span>
+                      <span className="text-blue-500">&lt;motion.h2</span>{" "}
+                      <span className="text-yellow-300">initial</span>
+                      <span className="text-white">
+                        ="&#123;&#123; y: 20 &#125;&#125;"
+                      </span>{" "}
+                      <span className="text-yellow-300">animate</span>
+                      <span className="text-white">
+                        ="&#123;&#123; y: 0 &#125;&#125;"
+                      </span>{" "}
+                      <span className="text-yellow-300">transition</span>
+                      <span className="text-white">
+                        ="&#123;&#123; duration: 0.5 &#125;&#125;"
+                      </span>
+                      <span className="text-blue-500">&gt;</span>
                       <span className="text-white">About Me</span>
-                      <span className="text-blue-500">&lt;/h2&gt;</span>
+                      <span className="text-blue-500">&lt;/motion.h2&gt;</span>
                     </div>
                     <div className="pl-4">
-                      <span className="text-blue-500">&lt;div&gt;</span>
+                      <span className="text-blue-500">&lt;div</span>{" "}
+                      <span className="text-yellow-300">className</span>
                       <span className="text-white">
-                        &#123;aboutMe.paragraphs.map(p =&gt; (
+                        ="paragraphs-container"
+                      </span>
+                      <span className="text-blue-500">&gt;</span>
+                      <span className="text-white">
+                        &#123;aboutMe.paragraphs.map((p, i) =&gt; (
                       </span>
                       <div className="pl-4">
-                        <span className="text-blue-500">&lt;p&gt;</span>
+                        <span className="text-blue-500">&lt;motion.p</span>{" "}
+                        <span className="text-yellow-300">key</span>
+                        <span className="text-white">="&#123;i&#125;"</span>{" "}
+                        <span className="text-yellow-300">initial</span>
+                        <span className="text-white">
+                          ="&#123;&#123; opacity: 0, y: 10 &#125;&#125;"
+                        </span>{" "}
+                        <span className="text-yellow-300">animate</span>
+                        <span className="text-white">
+                          ="&#123;&#123; opacity: 1, y: 0 &#125;&#125;"
+                        </span>{" "}
+                        <span className="text-yellow-300">transition</span>
+                        <span className="text-white">
+                          ="&#123;&#123; delay: i * 0.2 &#125;&#125;"
+                        </span>
+                        <span className="text-blue-500">&gt;</span>
                         <span className="text-white">&#123;p&#125;</span>
-                        <span className="text-blue-500">&lt;/p&gt;</span>
+                        <span className="text-blue-500">&lt;/motion.p&gt;</span>
                       </div>
                       <span className="text-white">))&#125;</span>
                       <span className="text-blue-500">&lt;/div&gt;</span>
                     </div>
-                    <span className="text-blue-500">&lt;/div&gt;</span>
+                    <span className="text-blue-500">&lt;/motion.div&gt;</span>
                   </div>
                   <span className="text-white">);</span>
                 </div>
@@ -494,28 +582,42 @@ export default function Home() {
             Projects
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
             {portfolioContent.projects.map((project, index) => (
               <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.03 }}
                 className="project-card"
               >
-                <div className="mb-4 bg-primary/50 h-48 rounded overflow-hidden relative group cursor-pointer">
+                <div className="mb-4 bg-primary/50 h-36 sm:h-48 rounded overflow-hidden relative group cursor-pointer">
                   {/* Project preview image with hover effect */}
                   <Link
                     href={project.demoLink}
                     target="_blank"
                     className="block w-full h-full"
                   >
-                    <div className="absolute inset-0 flex items-center justify-center bg-primary/60 group-hover:bg-primary/30 transition-all duration-300 z-10">
-                      <FaExternalLinkAlt className="text-2xl text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
+                    <motion.div 
+                      initial={{ opacity: 0.6 }}
+                      whileHover={{ opacity: 0.3 }}
+                      className="absolute inset-0 flex items-center justify-center bg-primary/60 z-10"
+                    >
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        className="text-2xl text-accent"
+                      >
+                        <FaExternalLinkAlt />
+                      </motion.div>
+                    </motion.div>
                     {/* Placeholder until you have real images */}
                     <div className="absolute inset-0 flex items-center justify-center bg-secondary">
-                      <FaGamepad className="text-5xl text-accent/30" />
+                      <FaGamepad className="text-4xl sm:text-5xl text-accent/30" />
                     </div>
-                    {/* Use real images - keep this commented until you have the images */}
+                    {/* Use real images - keep this enabled for your real images */}
                     {
                       <Image
                         src={project.image}
