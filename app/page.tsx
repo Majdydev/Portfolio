@@ -343,52 +343,46 @@ export default function Home() {
                 </div>
 
                 <div className="text-blue-400">
-                  <span className="text-pink-400">import</span>{" "}
-                  <span className="text-white">&#123; AboutMe &#125;</span>{" "}
-                  <span className="text-pink-400">from</span>{" "}
-                  <span className="text-green-400">'./components'</span>;
-                </div>
-
-                <div className="mt-4">
                   <span className="text-pink-400">const</span>{" "}
-                  <span className="text-blue-300">developer</span>{" "}
+                  <span className="text-blue-300">aboutMe</span>{" "}
                   <span className="text-white">=</span>{" "}
                   <span className="text-white">&#123;</span>
                 </div>
 
                 <div className="pl-4 mt-2">
                   <div>
-                    <span className="text-blue-300">name</span>
-                    <span className="text-white">:</span>{" "}
-                    <span className="text-green-400">"Majd Abbassi"</span>
-                    <span className="text-white">,</span>
-                  </div>
-                  <div>
-                    <span className="text-blue-300">title</span>
-                    <span className="text-white">:</span>{" "}
-                    <span className="text-green-400">
-                      "Fullstack Developer & Game Designer"
-                    </span>
-                    <span className="text-white">,</span>
-                  </div>
-                  <div>
-                    <span className="text-blue-300">skills</span>
+                    <span className="text-blue-300">paragraphs</span>
                     <span className="text-white">: [</span>
-                    <span className="text-green-400">"Unity"</span>
-                    <span className="text-white">,</span>
-                    <span className="text-green-400">"Next.js"</span>
-                    <span className="text-white">,</span>
-                    <span className="text-green-400">".NET"</span>
-                    <span className="text-white">,</span>
-                    <span className="text-green-400">"Unreal"</span>
-                    <span className="text-white">],</span>
                   </div>
-                  <div>
-                    <span className="text-blue-300">passion</span>
-                    <span className="text-white">:</span>{" "}
+                  <div className="pl-4 mt-2">
                     <span className="text-green-400">
-                      "Building immersive digital experiences"
+                      "Hello! I'm a versatile developer with expertise spanning
+                      game development and web technologies. My journey in
+                      software engineering has equipped me with a diverse skill
+                      set that allows me to create immersive experiences across
+                      different platforms."
                     </span>
+                    <span className="text-white">,</span>
+                  </div>
+                  <div className="pl-4 mt-2">
+                    <span className="text-green-400">
+                      "With a background in Unity and Unreal Engine, I create
+                      engaging gaming experiences while also building robust web
+                      applications using modern frameworks like Next.js backed
+                      by ASP.NET."
+                    </span>
+                    <span className="text-white">,</span>
+                  </div>
+                  <div className="pl-4 mt-2">
+                    <span className="text-green-400">
+                      "I thrive in creative problem-solving environments and
+                      enjoy the challenge of bringing ideas to life through
+                      code, whether it's a complex game mechanic or a smooth web
+                      interaction."
+                    </span>
+                  </div>
+                  <div className="mt-2">
+                    <span className="text-white">]</span>
                   </div>
                 </div>
 
@@ -406,12 +400,29 @@ export default function Home() {
                   <span className="text-pink-400">return</span>{" "}
                   <span className="text-white">(</span>
                   <div className="pl-4">
-                    <span className="text-blue-500">&lt;AboutMe</span>{" "}
-                    <span className="text-yellow-300">developer</span>
-                    <span className="text-white">
-                      =&#123;developer&#125;
-                    </span>{" "}
-                    <span className="text-blue-500">/&gt;</span>
+                    <span className="text-blue-500">&lt;div</span>{" "}
+                    <span className="text-yellow-300">className</span>
+                    <span className="text-white">="about-section"</span>
+                    <span className="text-blue-500">&gt;</span>
+                    <div className="pl-4">
+                      <span className="text-blue-500">&lt;h2&gt;</span>
+                      <span className="text-white">About Me</span>
+                      <span className="text-blue-500">&lt;/h2&gt;</span>
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-blue-500">&lt;div&gt;</span>
+                      <span className="text-white">
+                        &#123;aboutMe.paragraphs.map(p =&gt; (
+                      </span>
+                      <div className="pl-4">
+                        <span className="text-blue-500">&lt;p&gt;</span>
+                        <span className="text-white">&#123;p&#125;</span>
+                        <span className="text-blue-500">&lt;/p&gt;</span>
+                      </div>
+                      <span className="text-white">))&#125;</span>
+                      <span className="text-blue-500">&lt;/div&gt;</span>
+                    </div>
+                    <span className="text-blue-500">&lt;/div&gt;</span>
                   </div>
                   <span className="text-white">);</span>
                 </div>
