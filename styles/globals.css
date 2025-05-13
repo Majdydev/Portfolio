@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply bg-primary text-textPrimary;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  * {
+    @apply box-border;
+  }
+}
+
+@layer components {
+  .horizontal-scroll-section {
+    @apply overflow-x-hidden overflow-y-hidden whitespace-nowrap;
+    scroll-snap-type: x mandatory;
+  }
+
+  .horizontal-scroll-section > div {
+    scroll-snap-align: start;
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    height: 100vh;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-purple-500;
+  }
+
+  .section-padding {
+    @apply py-20 px-4 md:px-12 lg:px-24;
+  }
+
+  .nav-link {
+    @apply relative text-textSecondary hover:text-accent transition-colors duration-300 ease-in-out;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 bottom-[-5px] h-[2px] w-0 bg-accent transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .project-card {
+    @apply bg-secondary p-6 rounded-md shadow-lg transition-all duration-300 hover:translate-y-[-5px];
+  }
+}
