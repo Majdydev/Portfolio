@@ -222,7 +222,7 @@ export default function Home() {
           >
             &lt;Majd/&gt;
           </motion.div>
-          
+
           {/* Mobile Navigation Hamburger */}
           <div className="md:hidden">
             <motion.button
@@ -235,25 +235,52 @@ export default function Home() {
                 }
               }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </motion.button>
-            
-            <motion.div 
+
+            <motion.div
               id="mobile-menu"
               initial={{ opacity: 0, y: -20 }}
               className="hidden absolute left-0 right-0 top-full bg-primary/95 backdrop-blur-md p-4 border-t border-accent/20"
             >
               <ul className="flex flex-col space-y-4">
-                <li><a href="#about" className="nav-link block py-2">About</a></li>
-                <li><a href="#skills" className="nav-link block py-2">Skills</a></li>
-                <li><a href="#projects" className="nav-link block py-2">Projects</a></li>
-                <li><a href="#contact" className="nav-link block py-2">Contact</a></li>
+                <li>
+                  <a href="#about" className="nav-link block py-2">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#skills" className="nav-link block py-2">
+                    Skills
+                  </a>
+                </li>
+                <li>
+                  <a href="#projects" className="nav-link block py-2">
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="nav-link block py-2">
+                    Contact
+                  </a>
+                </li>
               </ul>
             </motion.div>
           </div>
-          
+
           {/* Desktop Navigation */}
           <motion.ul
             initial={{ opacity: 0, y: -20 }}
@@ -261,10 +288,26 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="hidden md:flex space-x-4 lg:space-x-8 items-center"
           >
-            <li><a href="#about" className="nav-link">About</a></li>
-            <li><a href="#skills" className="nav-link">Skills</a></li>
-            <li><a href="#projects" className="nav-link">Projects</a></li>
-            <li><a href="#contact" className="nav-link">Contact</a></li>
+            <li>
+              <a href="#about" className="nav-link">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#skills" className="nav-link">
+                Skills
+              </a>
+            </li>
+            <li>
+              <a href="#projects" className="nav-link">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#contact" className="nav-link">
+                Contact
+              </a>
+            </li>
           </motion.ul>
         </div>
       </nav>
@@ -277,7 +320,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -285,7 +328,7 @@ export default function Home() {
             >
               {portfolioContent.hero.greeting}
             </motion.h1>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -293,7 +336,7 @@ export default function Home() {
             >
               {portfolioContent.hero.name}.
             </motion.h2>
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -301,7 +344,7 @@ export default function Home() {
             >
               {portfolioContent.hero.tagline}
             </motion.h3>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -314,7 +357,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(100, 255, 218, 0.1)" }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(100, 255, 218, 0.1)",
+              }}
               whileTap={{ scale: 0.95 }}
               className="inline-block border border-accent text-accent py-3 sm:py-4 px-6 sm:px-8 rounded font-mono font-medium transition-all duration-300"
             >
@@ -330,7 +376,7 @@ export default function Home() {
           >
             <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto">
               {/* Profile image with responsive size */}
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="w-full h-full rounded-lg overflow-hidden border-2 border-accent/30 relative"
               >
@@ -490,7 +536,9 @@ export default function Home() {
                       <div className="pl-4">
                         <span className="text-blue-500">&lt;motion.p</span>{" "}
                         <span className="text-yellow-300">key</span>
-                        <span className="text-white">="&#123;i&#125;"</span>{" "}
+                        <span className="text-white">
+                          ="&#123;i&#125;"
+                        </span>{" "}
                         <span className="text-yellow-300">initial</span>
                         <span className="text-white">
                           ="&#123;&#123; opacity: 0, y: 10 &#125;&#125;"
@@ -600,7 +648,7 @@ export default function Home() {
                     target="_blank"
                     className="block w-full h-full"
                   >
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0.6 }}
                       whileHover={{ opacity: 0.3 }}
                       className="absolute inset-0 flex items-center justify-center bg-primary/60 z-10"
