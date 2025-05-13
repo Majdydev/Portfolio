@@ -6,9 +6,13 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  swcMinify: true,
+  reactStrictMode: true,
   images: {
     domains: ["picsum.photos"], // Add any domains you'll load images from
+  },
+  output: 'standalone',
+  experimental: {
+    disableOptimizedLoading: true,
   },
 };
 
