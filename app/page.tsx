@@ -277,6 +277,11 @@ export default function Home() {
                     Contact
                   </a>
                 </li>
+                <li>
+                  <Link href="/Hanin" className="nav-link block py-2">
+                    Hanin
+                  </Link>
+                </li>
               </ul>
             </motion.div>
           </div>
@@ -307,6 +312,11 @@ export default function Home() {
               <a href="#contact" className="nav-link">
                 Contact
               </a>
+            </li>
+            <li>
+              <Link href="/Hanin" className="nav-link">
+                Hanin
+              </Link>
             </li>
           </motion.ul>
         </div>

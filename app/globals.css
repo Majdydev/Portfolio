@@ -26,6 +26,11 @@ a {
   box-sizing: border-box;
 }
 
+/* Arabic font utility */
+.font-ar {
+  font-family: 'Cairo', 'Tajawal', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
 .horizontal-scroll-section {
   overflow-x: hidden;
   overflow-y: hidden;
