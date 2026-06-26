@@ -123,6 +123,21 @@ export default function Home() {
     ],
     projects: [
       {
+        title: "Hanin - Horror Game Store",
+        description:
+          "A chilling first-person survival horror game. A wedding anniversary turns into a fight for survival when your wife hunts you down. Includes full payment and scan checkout flows.",
+        image: "/images/Splash.jpg",
+        tags: ["Unity", "C#", "Next.js", "Horror Game", "Store App"],
+        demoLink: "/Hanin",
+        codeLink: "https://github.com/Majdydev",
+        icon: (
+          <div className="flex space-x-2">
+            <FaUnity className="text-accent" />
+            <FaShoppingCart className="text-accent" />
+          </div>
+        ),
+      },
+      {
         title: "Arja3 4odwa - Unity Game",
         description:
           "A narrative-driven adventure game exploring themes of identity and return, with immersive gameplay mechanics and engaging storytelling.",
@@ -384,23 +399,78 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden md:block"
           >
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto">
-              {/* Profile image with responsive size */}
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[22rem] md:h-[22rem] mx-auto">
+              <div className="absolute -inset-1 bg-gradient-to-r from-accent to-purple-600 rounded-2xl blur-xl opacity-30 animate-pulse" />
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="w-full h-full rounded-lg overflow-hidden border-2 border-accent/30 relative"
+                whileHover={{ y: -8, rotate: 1 }}
+                className="w-full h-full rounded-2xl overflow-hidden bg-[#0d1e36]/90 border border-accent/25 backdrop-blur-md relative p-6 flex flex-col justify-between shadow-2xl"
               >
-                {/* You can replace this with an actual image when you have one */}
-                <div className="w-full h-full bg-secondary flex items-center justify-center">
-                  <FaCode className="text-6xl sm:text-7xl md:text-8xl text-accent/30" />
+                {/* Card Header */}
+                <div className="flex justify-between items-center border-b border-accent/10 pb-4">
+                  <div className="flex gap-2">
+                    <span className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></span>
+                    <span className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></span>
+                    <span className="w-3 h-3 rounded-full bg-green-500/80 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                  </div>
+                  <span className="text-xs font-mono text-accent/60">
+                    majd_profile.json
+                  </span>
                 </div>
-                {/* Uncomment and add your image path when ready */}
-                {/* <Image 
-                  src={portfolioContent.hero.profileImage}
-                  alt="Profile"
-                  fill
-                  className="object-cover"
-                /> */}
+
+                {/* Card Code Content */}
+                <div className="flex-1 font-mono text-sm space-y-1.5 mt-4 text-textSecondary select-none">
+                  <div>
+                    <span className="text-pink-400">const</span>{" "}
+                    <span className="text-blue-300">developer</span> ={" "}
+                    <span className="text-white">&#123;</span>
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-blue-300">name</span>:{" "}
+                    <span className="text-emerald-300">"Majd Abbassi"</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-blue-300">role</span>:{" "}
+                    <span className="text-emerald-300">"Game & Web Dev"</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-blue-300">stack</span>:{" "}
+                    <span className="text-white">[</span>
+                    <div className="pl-4 text-xs">
+                      <span className="text-green-400">"Unity"</span>,{" "}
+                      <span className="text-green-400">"C#"</span>,{" "}
+                      <span className="text-green-400">"Next.js"</span>,
+                      <br />
+                      <span className="text-green-400">"ASP.NET"</span>,{" "}
+                      <span className="text-green-400">"Unreal Engine"</span>
+                    </div>
+                    <span className="text-white">]</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-blue-300">focus</span>:{" "}
+                    <span className="text-emerald-300">
+                      "Survival Horror Games"
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-white">&#125;;</span>
+                  </div>
+                </div>
+
+                {/* Card Footer */}
+                <div className="border-t border-accent/10 pt-4 flex justify-between items-center text-accent">
+                  <div className="flex items-center gap-2">
+                    <FaUnity className="text-2xl animate-spin [animation-duration:15s]" />
+                    <span className="text-[10px] font-mono tracking-wider">
+                      UNITY_ACTIVATED
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-accent animate-ping"></span>
+                    <span className="text-[10px] font-mono text-textPrimary tracking-wide">
+                      ONLINE
+                    </span>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -649,73 +719,103 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.03 }}
-                className="project-card"
+                className={`project-card ${
+                  project.demoLink.startsWith("/")
+                    ? "glow-crimson"
+                    : "glow-cyan"
+                } ${
+                  project.demoLink === "/Hanin" ? "ring-1 ring-red-500/30" : ""
+                }`}
               >
-                <div className="mb-4 bg-primary/50 h-36 sm:h-48 rounded overflow-hidden relative group cursor-pointer">
+                <div className="mb-4 bg-primary/50 h-36 sm:h-48 rounded-lg overflow-hidden relative group cursor-pointer border border-white/5">
                   {/* Project preview image with hover effect */}
                   <Link
                     href={project.demoLink}
-                    target="_blank"
+                    target={
+                      project.demoLink.startsWith("/") ? undefined : "_blank"
+                    }
                     className="block w-full h-full"
                   >
                     <motion.div
-                      initial={{ opacity: 0.6 }}
-                      whileHover={{ opacity: 0.3 }}
-                      className="absolute inset-0 flex items-center justify-center bg-primary/60 z-10"
+                      initial={{ opacity: 0.4 }}
+                      whileHover={{ opacity: 0.1 }}
+                      className="absolute inset-0 flex items-center justify-center bg-primary/40 z-10 transition-opacity duration-300"
                     >
                       <motion.div
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                        className="text-2xl text-accent"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileHover={{ opacity: 1, scale: 1 }}
+                        className="text-2xl text-accent bg-black/60 p-3 rounded-full backdrop-blur-sm"
                       >
                         <FaExternalLinkAlt />
                       </motion.div>
                     </motion.div>
-                    {/* Placeholder until you have real images */}
+
                     <div className="absolute inset-0 flex items-center justify-center bg-secondary">
-                      <FaGamepad className="text-4xl sm:text-5xl text-accent/30" />
+                      <FaGamepad className="text-4xl sm:text-5xl text-accent/20 animate-pulse" />
                     </div>
-                    {/* Use real images - keep this enabled for your real images */}
-                    {
+
+                    {project.image && (
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       />
-                    }
+                    )}
                   </Link>
                 </div>
-                <div className="flex justify-between items-center mb-3">
-                  <h3 className="text-xl font-bold">{project.title}</h3>
+                <div className="flex justify-between items-center mb-3 gap-3">
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-xl font-bold tracking-tight text-white group-hover:text-accent transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    {project.demoLink === "/Hanin" && (
+                      <span className="inline-flex w-fit items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.25em] text-red-300">
+                        <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+                        Featured
+                      </span>
+                    )}
+                  </div>
                   {project.icon}
                 </div>
-                <p className="text-textSecondary mb-4">{project.description}</p>
+                <p className="text-textSecondary text-sm leading-relaxed mb-4 min-h-[4rem]">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2 mt-4 mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 bg-primary/50 rounded-full text-xs font-mono"
+                      className="px-3 py-1 bg-primary/40 border border-white/5 rounded-full text-xs font-mono text-textPrimary"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center text-sm font-mono pt-2 border-t border-white/5">
                   <Link
                     href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent hover:underline flex items-center gap-2 group"
+                    target={
+                      project.demoLink.startsWith("/") ? undefined : "_blank"
+                    }
+                    rel={
+                      project.demoLink.startsWith("/")
+                        ? undefined
+                        : "noopener noreferrer"
+                    }
+                    className="text-accent hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span>View Project</span>
+                    <span>
+                      {project.demoLink.startsWith("/")
+                        ? "Enter Store"
+                        : "View Project"}
+                    </span>
                     <FaExternalLinkAlt className="text-xs transition-transform group-hover:translate-x-1" />
                   </Link>
                   <Link
                     href={project.codeLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:underline"
+                    className="text-textSecondary hover:text-white transition-colors duration-200"
                   >
                     GitHub
                   </Link>

@@ -8,7 +8,12 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["picsum.photos"], // Add any domains you'll load images from
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+    ],
   },
   output: 'standalone',
   experimental: {
