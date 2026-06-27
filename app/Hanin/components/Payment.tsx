@@ -167,8 +167,8 @@ export default function Payment({ lang }: { lang: string }) {
                       ? "امسح رمز QR هذا للدفع عبر D17"
                       : "Scan this QR code to pay via D17"
                     : isAr
-                    ? "امسح رمز QR هذا للدفع عبر Flouci"
-                    : "Scan this QR code to pay via Flouci"}
+                      ? "امسح رمز QR هذا للدفع عبر Flouci"
+                      : "Scan this QR code to pay via Flouci"}
                 </p>
                 <button
                   onClick={() => setSelectedQR(null)}
